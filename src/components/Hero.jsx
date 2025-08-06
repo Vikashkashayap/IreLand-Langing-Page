@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
+      className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-50 flex items-center justify-center px-8 sm:px-6 lg:px-8 py-16 sm:py-12"
     >
       <div className="w-full max-w-7xl mx-auto">
         {/* Change grid to flex with horizontal layout */}
@@ -136,7 +136,7 @@ const Hero = () => {
           </div>
 
           {/* Right Section - Registration Form */}
-          <div className="order-1 lg:order-2 mt-8 sm:mt-0 flex-1">
+          <div className="order-2 lg:order-2 mt-8 sm:mt-0 flex-1">
             <RegistrationForm />
           </div>
         </div>
