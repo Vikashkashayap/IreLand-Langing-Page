@@ -21,9 +21,9 @@ const RegistrationPopup = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-4 right-4 z-50 w-96 max-w-[90vw]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50">
       {/* Popup Content */}
-      <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-200 max-h-[85vh] overflow-y-auto">
+      <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-200 max-h-[85vh] overflow-y-auto w-96 max-w-[90vw]">
         {/* Close Button */}
         <button
           onClick={handleClose}

@@ -123,7 +123,6 @@ const RegistrationForm = ({ className = "" }) => {
   ];
 
   const intakes = [
-    "Fall 2024",
     "Spring 2025",
     "Fall 2025",
     "Spring 2026",
@@ -245,9 +244,6 @@ const RegistrationForm = ({ className = "" }) => {
     className="sm:w-1/4 w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
   >
     <option value="91">+91</option>
-    <option value="1">+1</option>
-    <option value="44">+44</option>
-    <option value="61">+61</option>
   </select>
   <input
     type="tel"

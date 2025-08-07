@@ -11,7 +11,7 @@ import AboutIreland from './components/AboutIreland';
 import RegistrationPopup from './components/RegistrationPopup';
 import PreWhyStudyIrelandPopup from './components/PreWhyStudyIrelandPopup';
 import PreFAQPopup from './components/PreFAQPopup';
-
+import FlowChart from './components/FlowChart';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
       <Hero />
       <PopularCourses />
       <WhyStudyIreland />
+      <FlowChart />
       <AboutIreland />
       <Universities />
       <Testimonials />

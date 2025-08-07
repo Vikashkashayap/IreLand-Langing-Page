@@ -1,38 +1,38 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Globe, 
-  Briefcase, 
-  Award, 
-  Users, 
-  BookOpen, 
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Globe,
+  Briefcase,
+  Award,
+  Users,
+  BookOpen,
   Clock,
   ChevronRight,
   Download,
   Calendar,
   MessageSquare,
   CheckCircle,
-  ArrowRight
-} from 'lucide-react';
+  ArrowRight,
+} from "lucide-react";
 
 const WhyStudyIreland = () => {
   const sectionRef = useRef(null);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [activeTab, setActiveTab] = useState('benefits');
+  const [activeTab, setActiveTab] = useState("benefits");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in-up');
+            entry.target.classList.add("animate-fade-in-up");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
+    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -41,52 +41,104 @@ const WhyStudyIreland = () => {
   const benefits = [
     {
       icon: <Globe className="w-8 h-8" />,
-      title: 'Global Tech Hub',
-      description: 'Ireland is home to 9 of the top 10 global tech companies including Google, Facebook, Apple, and Microsoft.',
-      stats: '500+ Tech Companies',
-      color: 'from-blue-500 to-blue-600',
-      companies: ['Google', 'Apple', 'Microsoft', 'Facebook', 'Intel', 'Twitter', 'LinkedIn', 'Amazon', 'IBM', 'Salesforce']
+      title: "Global Tech Hub",
+      description:
+        "Ireland is home to 9 of the top 10 global tech companies including Google, Facebook, Apple, and Microsoft.",
+      stats: "500+ Tech Companies",
+      color: "from-blue-500 to-blue-600",
+      companies: [
+        "Google",
+        "Apple",
+        "Microsoft",
+        "Facebook",
+        "Intel",
+        "Twitter",
+        "LinkedIn",
+        "Amazon",
+        "IBM",
+        "Salesforce",
+      ],
     },
     {
       icon: <Briefcase className="w-8 h-8" />,
-      title: 'EU & Schengen Access',
-      description: 'Study in Ireland and gain access to 27 EU countries and the entire Schengen zone for travel and work.',
-      stats: '27 EU Countries',
-      color: 'from-green-500 to-green-600',
-      countries: ['France', 'Germany', 'Italy', 'Spain', 'Netherlands', 'Belgium', 'Austria', 'Portugal', 'Sweden']
+      title: "EU & Schengen Access",
+      description:
+        "Study in Ireland and gain access to 27 EU countries and the entire Schengen zone for travel and work.",
+      stats: "27 EU Countries",
+      color: "from-green-500 to-green-600",
+      countries: [
+        "France",
+        "Germany",
+        "Italy",
+        "Spain",
+        "Netherlands",
+        "Belgium",
+        "Austria",
+        "Portugal",
+        "Sweden",
+      ],
     },
     {
       icon: <Calendar className="w-8 h-8" />,
-      title: '2-Year Post-Study Visa',
-      description: 'Graduates can stay in Ireland for up to 2 years to work and gain international experience.',
-      stats: '24 Months',
-      color: 'from-purple-500 to-purple-600',
-      visaDetails: ['No job offer required', 'Work full-time', 'Pathway to permanent residency', 'Bring dependents']
+      title: "2-Year Post-Study Visa",
+      description:
+        "Graduates can stay in Ireland for up to 2 years to work and gain international experience.",
+      stats: "24 Months",
+      color: "from-purple-500 to-purple-600",
+      visaDetails: [
+        "No job offer required",
+        "Work full-time",
+        "Pathway to permanent residency",
+        "Bring dependents",
+      ],
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: 'Industry-Linked Curriculum',
-      description: 'Programs designed with industry partners to ensure graduates are job-ready with practical skills.',
-      stats: '95% Employment Rate',
-      color: 'from-orange-500 to-orange-600',
-      partners: ['Accenture', 'Dell', 'Pfizer', 'Johnson & Johnson', 'EY', 'PwC', 'KPMG', 'Boston Scientific']
+      title: "Industry-Linked Curriculum",
+      description:
+        "Programs designed with industry partners to ensure graduates are job-ready with practical skills.",
+      stats: "95% Employment Rate",
+      color: "from-orange-500 to-orange-600",
+      partners: [
+        "Accenture",
+        "Dell",
+        "Pfizer",
+        "Johnson & Johnson",
+        "EY",
+        "PwC",
+        "KPMG",
+        "Boston Scientific",
+      ],
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
-      title: 'English-Speaking Country',
-      description: 'No language barriers - study in English and improve your language skills for global opportunities.',
-      stats: '100% English',
-      color: 'from-red-500 to-red-600',
-      advantages: ['No IELTS for some programs', 'Business language is English', 'Global communication skills', 'No translation needed']
+      title: "English-Speaking Country",
+      description:
+        "No language barriers - study in English and improve your language skills for global opportunities.",
+      stats: "100% English",
+      color: "from-red-500 to-red-600",
+      advantages: [
+        "No IELTS for some programs",
+        "Business language is English",
+        "Global communication skills",
+        "No translation needed",
+      ],
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: 'Top-Ranked Universities',
-      description: 'Irish universities consistently rank among the world\'s best for quality education and research.',
-      stats: 'Top 1% Globally',
-      color: 'from-indigo-500 to-indigo-600',
-      universities: ['Trinity College Dublin', 'University College Dublin', 'National University of Ireland', 'University College Cork', 'Dublin City University']
-    }
+      title: "Top-Ranked Universities",
+      description:
+        "Irish universities consistently rank among the world's best for quality education and research.",
+      stats: "Top 1% Globally",
+      color: "from-indigo-500 to-indigo-600",
+      universities: [
+        "Trinity College Dublin",
+        "University College Dublin",
+        "National University of Ireland",
+        "University College Cork",
+        "Dublin City University",
+      ],
+    },
   ];
 
   const testimonials = [
@@ -96,7 +148,7 @@ const WhyStudyIreland = () => {
       course: "MSc Computer Science",
       university: "Trinity College Dublin",
       text: "The industry connections through my program led to an internship at Google and now a full-time position. Ireland's tech ecosystem is incredible!",
-      rating: 5
+      rating: 5,
     },
     {
       name: "Carlos Mendez",
@@ -104,7 +156,7 @@ const WhyStudyIreland = () => {
       course: "MBA",
       university: "University College Dublin",
       text: "The 2-year stay-back visa gave me time to find the perfect job. I now work at Accenture with clients across Europe.",
-      rating: 5
+      rating: 5,
     },
     {
       name: "Wei Zhang",
@@ -112,35 +164,35 @@ const WhyStudyIreland = () => {
       course: "Pharmaceutical Sciences",
       university: "University College Cork",
       text: "Ireland's pharmaceutical industry is world-class. I had multiple job offers before graduation thanks to the university's industry partnerships.",
-      rating: 5
-    }
+      rating: 5,
+    },
   ];
 
   return (
-    <section 
-      id="why-ireland" 
-      ref={sectionRef} 
+    <section
+      id="why-ireland"
+      ref={sectionRef}
       className="py-5 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full blur-3xl"
         ></motion.div>
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -80, 0], y: [0, -30, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute top-40 right-20 w-40 h-40 bg-blue-400 rounded-full blur-3xl"
         ></motion.div>
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 60, 0], y: [0, -80, 0] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-400 rounded-full blur-3xl"
         ></motion.div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
@@ -150,7 +202,7 @@ const WhyStudyIreland = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-block mb-6"
           >
@@ -163,7 +215,9 @@ const WhyStudyIreland = () => {
             Why Study in Ireland?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover the unique advantages that make Ireland the perfect destination for international students seeking world-class education and global opportunities.
+            Discover the unique advantages that make Ireland the perfect
+            destination for international students seeking world-class education
+            and global opportunities.
           </p>
         </motion.div>
 
@@ -171,24 +225,21 @@ const WhyStudyIreland = () => {
         <div className="flex justify-center mb-12">
           <div className="inline-flex rounded-xl bg-gray-100 p-1">
             <button
-              onClick={() => setActiveTab('benefits')}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center ${activeTab === 'benefits' ? 'bg-white shadow-md text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
+              onClick={() => setActiveTab("benefits")}
+              className={`px-6 py-3 rounded-lg transition-all flex items-center ${
+                activeTab === "benefits"
+                  ? "bg-white shadow-md text-blue-600"
+                  : "text-gray-600 hover:text-gray-800"
+              }`}
             >
               <CheckCircle className="w-5 h-5 mr-2" />
               Key Benefits
-            </button>
-            <button
-              onClick={() => setActiveTab('testimonials')}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center ${activeTab === 'testimonials' ? 'bg-white shadow-md text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Student Stories
             </button>
           </div>
         </div>
 
         <AnimatePresence mode="wait">
-          {activeTab === 'benefits' && (
+          {activeTab === "benefits" && (
             <motion.div
               key="benefits"
               initial={{ opacity: 0 }}
@@ -212,26 +263,28 @@ const WhyStudyIreland = () => {
                   >
                     {/* Gradient background overlay */}
                     {hoveredCard === index && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-10 rounded-2xl pointer-events-none`}
                         style={{ zIndex: 1 }}
                       />
                     )}
-                    
-                    <div className={`w-16 h-16 mb-6 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br ${benefit.color} shadow-lg relative z-10`}>
+
+                    <div
+                      className={`w-16 h-16 mb-6 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br ${benefit.color} shadow-lg relative z-10`}
+                    >
                       {benefit.icon}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-gray-900 mb-4 relative z-10">
                       {benefit.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
                       {benefit.description}
                     </p>
-                    
+
                     <div className="flex items-center justify-between relative z-10">
                       <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
                         {benefit.stats}
@@ -243,14 +296,23 @@ const WhyStudyIreland = () => {
 
                     {/* Expanded details on hover */}
                     {hoveredCard === index && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="mt-6 pt-6 border-t border-gray-100 relative z-20 bg-white bg-opacity-95 rounded-b-2xl"
                       >
-                        <h4 className="text-sm font-semibold text-gray-500 mb-2">HIGHLIGHTS</h4>
+                        <h4 className="text-sm font-semibold text-gray-500 mb-2">
+                          HIGHLIGHTS
+                        </h4>
                         <ul className="space-y-2">
-                          {(benefit.companies || benefit.countries || benefit.visaDetails || benefit.partners || benefit.advantages || benefit.universities)?.map((item, i) => (
+                          {(
+                            benefit.companies ||
+                            benefit.countries ||
+                            benefit.visaDetails ||
+                            benefit.partners ||
+                            benefit.advantages ||
+                            benefit.universities
+                          )?.map((item, i) => (
                             <li key={i} className="flex items-start">
                               <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
                               <span className="text-gray-700">{item}</span>
@@ -265,7 +327,7 @@ const WhyStudyIreland = () => {
             </motion.div>
           )}
 
-          {activeTab === 'testimonials' && (
+          {activeTab === "testimonials" && (
             <motion.div
               key="testimonials"
               initial={{ opacity: 0 }}
@@ -286,14 +348,25 @@ const WhyStudyIreland = () => {
                   >
                     <div className="flex items-center mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                        <Star
+                          key={i}
+                          className="w-5 h-5 text-yellow-400 fill-current"
+                        />
                       ))}
                     </div>
-                    <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
+                    <p className="text-gray-600 mb-6 italic">
+                      "{testimonial.text}"
+                    </p>
                     <div>
-                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.country}</p>
-                      <p className="text-sm text-blue-600">{testimonial.course} - {testimonial.university}</p>
+                      <h4 className="font-bold text-gray-900">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm text-gray-500">
+                        {testimonial.country}
+                      </p>
+                      <p className="text-sm text-blue-600">
+                        {testimonial.course} - {testimonial.university}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -312,10 +385,30 @@ const WhyStudyIreland = () => {
         >
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "35,000+", label: "International Students", icon: <Users className="w-8 h-8 mx-auto mb-3 text-green-600" /> },
-              { value: "95%", label: "Graduate Employment Rate", icon: <Briefcase className="w-8 h-8 mx-auto mb-3 text-green-600" /> },
-              { value: "€15K-25K", label: "Average Annual Tuition", icon: <BookOpen className="w-8 h-8 mx-auto mb-3 text-green-600" /> },
-              { value: "24", label: "Months Post-Study Visa", icon: <Clock className="w-8 h-8 mx-auto mb-3 text-green-600" /> }
+              {
+                value: "35,000+",
+                label: "International Students",
+                icon: <Users className="w-8 h-8 mx-auto mb-3 text-green-600" />,
+              },
+              {
+                value: "95%",
+                label: "Graduate Employment Rate",
+                icon: (
+                  <Briefcase className="w-8 h-8 mx-auto mb-3 text-green-600" />
+                ),
+              },
+              {
+                value: "€15K-25K",
+                label: "Average Annual Tuition",
+                icon: (
+                  <BookOpen className="w-8 h-8 mx-auto mb-3 text-green-600" />
+                ),
+              },
+              {
+                value: "24",
+                label: "Months Post-Study Visa",
+                icon: <Clock className="w-8 h-8 mx-auto mb-3 text-green-600" />,
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -323,7 +416,9 @@ const WhyStudyIreland = () => {
                 className="p-4"
               >
                 {stat.icon}
-                <div className="text-4xl font-bold text-green-600 mb-2">{stat.value}</div>
+                <div className="text-4xl font-bold text-green-600 mb-2">
+                  {stat.value}
+                </div>
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
@@ -345,10 +440,11 @@ const WhyStudyIreland = () => {
                 Ready to Start Your Journey?
               </h3>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Join thousands of students who have already chosen Ireland for their international education.
+                Join thousands of students who have already chosen Ireland for
+                their international education.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-lg flex items-center justify-center"
@@ -356,7 +452,7 @@ const WhyStudyIreland = () => {
                   <Download className="w-5 h-5 mr-2" />
                   Download Brochure
                 </motion.button>
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors duration-200 shadow-lg flex items-center justify-center"
