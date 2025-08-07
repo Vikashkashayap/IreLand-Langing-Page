@@ -19,6 +19,9 @@ const RegistrationForm = ({ className = "" }) => {
     pteScore: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" });
+
   const states = [
     "Andhra Pradesh",
     "Arunachal Pradesh",
@@ -134,10 +137,79 @@ const RegistrationForm = ({ className = "" }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you! Your registration has been submitted successfully.");
+    setIsLoading(true);
+    setSubmitStatus({ success: false, message: "" });
+
+    try {
+      // Prepare the data for API
+      const apiData = {
+        name: formData.name,
+        email: formData.email,
+        phone: `+${formData.countryCode}${formData.phone}`,
+        currentState: formData.currentState,
+        currentCity: formData.currentCity,
+        countryPreference: formData.countryPreference,
+        courseInterested: formData.courseInterested,
+        intakePreference: formData.intakePreference,
+        greScore: formData.greScore || null,
+        gmatScore: formData.gmatScore || null,
+        satScore: formData.satScore || null,
+        ieltsScore: formData.ieltsScore || null,
+        toeflScore: formData.toeflScore || null,
+        pteScore: formData.pteScore || null,
+        utm: "my_page",
+        campaign_id: "2079294469147841",
+        campaign_name: "my_second_campaign",
+        page_name: "NEET_EXAM"
+      };
+
+      const response = await fetch('https://collegehai-outbound.makunaiglobal.ai/choutbound-service/v1/google-inbound?utm=my_page&campaign_id=2079294469147841&campaign_name=my_second_campaign&page_name=NEET_EXAM', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setSubmitStatus({ 
+          success: true, 
+          message: "Thank you! Your registration has been submitted successfully." 
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          countryCode: "91",
+          phone: "",
+          currentState: "",
+          currentCity: "",
+          countryPreference: "",
+          courseInterested: "",
+          intakePreference: "",
+          greScore: "",
+          gmatScore: "",
+          satScore: "",
+          ieltsScore: "",
+          toeflScore: "",
+          pteScore: "",
+        });
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ 
+        success: false, 
+        message: "Sorry, there was an error submitting your registration. Please try again." 
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -330,10 +402,26 @@ const RegistrationForm = ({ className = "" }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-[#ff6347] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-bold text-base sm:text-lg hover:bg-orange-600 transition-colors duration-300"
+          disabled={isLoading}
+          className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-bold text-base sm:text-lg transition-colors duration-300 ${
+            isLoading 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-[#ff6347] text-white hover:bg-orange-600'
+          }`}
         >
-          Submit Registration
+          {isLoading ? 'Submitting...' : 'Submit Registration'}
         </button>
+
+        {/* Status Message */}
+        {submitStatus.message && (
+          <div className={`mt-4 p-3 rounded-lg text-sm ${
+            submitStatus.success 
+              ? 'bg-green-100 text-green-700 border border-green-200' 
+              : 'bg-red-100 text-red-700 border border-red-200'
+          }`}>
+            {submitStatus.message}
+          </div>
+        )}
       </form>
     </div>
   );
